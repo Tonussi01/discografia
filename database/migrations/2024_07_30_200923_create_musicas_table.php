@@ -6,9 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('musicas', function (Blueprint $table) {
@@ -16,20 +13,18 @@ return new class extends Migration
             $table->string('nome');
             $table->integer('duracao');
 
-            $table->unsignedBigInteger('id_album'); // Coluna para referenciar a tabela discos
+            $table->unsignedBigInteger('id_album');
+            $table->string('nome_album');
             $table->timestamps();
 
             // Define a chave estrangeira
             $table->foreign('id_album')
                 ->references('id')
                 ->on('discos')
-                ->onDelete('cascade');  // Adiciona comportamento em caso de exclusão do disco
+                ->onDelete('cascade');
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('musicas');

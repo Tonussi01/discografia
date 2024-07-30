@@ -7,17 +7,11 @@ use Illuminate\Http\Request;
 
 class DiscoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         return Disco::all();
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $request->validate([
@@ -29,17 +23,11 @@ class DiscoController extends Controller
         return response()->json($disco, 201);
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show($id)
     {
         return Disco::findOrFail($id);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, $id)
     {
 
@@ -50,9 +38,7 @@ class DiscoController extends Controller
         return $disco;
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+
     public function destroy($id)
     {
 

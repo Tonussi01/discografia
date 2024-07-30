@@ -17,7 +17,6 @@ Route::get('/disco',[DiscoController::class, 'index']);
 Route::get('/disco/{id}',[DiscoController::class, 'show']);
 Route::post('/disco',[DiscoController::class, 'store']);
 Route::put('/disco/{id}',[DiscoController::class, 'update']);
-
 Route::delete('/disco/{id}',[DiscoController::class, 'destroy']);
 
 Route::apiResource('discos', DiscoController::class);
